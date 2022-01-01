@@ -1,11 +1,11 @@
 const daysOfWeekMap = {
-    0: 'MON',
-    1: 'TUE',
-    2: 'WED',
-    3: 'THU',
-    4: 'FRI',
-    5: 'SAT',
-    6: 'SUN',
+    0: 'SUN',
+    1: 'MON',
+    2: 'TUE',
+    3: 'WED',
+    4: 'THU',
+    5: 'FRI',
+    6: 'SAT',
 }
 
 const iconNameToSizeMap = {
@@ -17,10 +17,12 @@ const iconNameToSizeMap = {
     rainy: { width: 160, height: 222},
 }
 
-console.log(Date());
-
-const days = document.querySelectorAll('.day-of-week');
 const dates = document.querySelectorAll('.date');
+const days = document.querySelectorAll('.day-of-week');
 
-
-console.log(daysArray);
+for (let i = 0; i < dates.length; i++) {
+  let date = new Date();
+  date.setDate(date.getDate() + i + 1);
+  days[i].innerHTML = (Object.values(daysOfWeekMap[date.getDay()])).join("");
+  dates[i].innerHTML = date.getDate();
+};
